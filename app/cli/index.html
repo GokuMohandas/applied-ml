@@ -1,0 +1,1281 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Tag suggestions for projects on Made With ML.">
+      
+      
+      
+        <meta name="author" content="Goku Mohandas">
+      
+      
+        <link rel="canonical" href="https://madewithml.com/app/cli/">
+      
+      <link rel="shortcut icon" href="../../static/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
+    
+    
+      
+        <title>CLI - TagIfAI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../static/css/custom.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#app.cli" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://madewithml.com/#mlops" title="TagIfAI" class="md-header-nav__button md-logo" aria-label="TagIfAI">
+      
+  <img src="../../static/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            TagIfAI
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              CLI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/GokuMohandas/MLOps" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GokuMohandas/MLOps
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../getting_started/" class="md-tabs__link">
+      Getting started
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api/" class="md-tabs__link md-tabs__link--active">
+        Reference
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://madewithml.com/#mlops" title="TagIfAI" class="md-nav__button md-logo" aria-label="TagIfAI">
+      
+  <img src="../../static/images/logo.png" alt="logo">
+
+    </a>
+    TagIfAI
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/GokuMohandas/MLOps" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GokuMohandas/MLOps
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" data-md-state="indeterminate" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Home" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon"></span>
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      TagIfAI
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../getting_started/" class="md-nav__link">
+      Getting started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Reference
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../api/" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        CLI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      CLI
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#app.cli" class="md-nav__link">
+    app.cli
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app.cli.behavioral_reevaluation" class="md-nav__link">
+    behavioral_reevaluation()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app.cli.compute_features" class="md-nav__link">
+    compute_features()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app.cli.download_data" class="md-nav__link">
+    download_data()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app.cli.optimize" class="md-nav__link">
+    optimize()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app.cli.predict_tags" class="md-nav__link">
+    predict_tags()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app.cli.train_model" class="md-nav__link">
+    train_model()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../tagifai/config/" class="md-nav__link">
+      Config
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../tagifai/data/" class="md-nav__link">
+      Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../tagifai/models/" class="md-nav__link">
+      Models
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../tagifai/train/" class="md-nav__link">
+      Training
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../tagifai/predict/" class="md-nav__link">
+      Inference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../tagifai/utils/" class="md-nav__link">
+      Utilities
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#app.cli" class="md-nav__link">
+    app.cli
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app.cli.behavioral_reevaluation" class="md-nav__link">
+    behavioral_reevaluation()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app.cli.compute_features" class="md-nav__link">
+    compute_features()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app.cli.download_data" class="md-nav__link">
+    download_data()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app.cli.optimize" class="md-nav__link">
+    optimize()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app.cli.predict_tags" class="md-nav__link">
+    predict_tags()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app.cli.train_model" class="md-nav__link">
+    train_model()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>CLI</h1>
+                
+                <div class="doc doc-object doc-module">
+<h2 class="hidden-toc" id="app.cli" style="visibility: hidden; position: absolute;">
+        </h2>
+<div class="doc doc-contents first">
+<div class="doc doc-children">
+<h2 id="functions">Functions</h2>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="app.cli.behavioral_reevaluation">
+
+<code class="highlight language-python"><span class="n">behavioral_reevaluation</span><span class="p">(</span><span class="n">model_dir</span><span class="o">=</span><span class="n">PosixPath</span><span class="p">(</span><span class="s1">'/home/runner/work/MLOps/MLOps/model'</span><span class="p">))</span></code>
+
+
+      </h3>
+<div class="doc doc-contents ">
+<p>Reevaluate existing runs on current behavioral tests in eval.py.
+This is possible since behavioral tests are inputs applied to black box
+models and compared with expected outputs. There is not dependency on
+data or model versions.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model_dir</code></td>
+<td><code>Path</code></td>
+<td>
+<p>location of model artifacts. Defaults to config.MODEL_DIR.</p>
+</td>
+<td><code>PosixPath('/home/runner/work/MLOps/MLOps/model')</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ValueError</code></td>
+<td>
+<p>Run id doesn't exist in experiment.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>app/cli.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">behavioral_reevaluation</span><span class="p">(</span>
+    <span class="n">model_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">MODEL_DIR</span><span class="p">,</span>
+<span class="p">):</span>  <span class="c1"># pragma: no cover, requires changing existing runs</span>
+    <span class="sd">"""Reevaluate existing runs on current behavioral tests in eval.py.</span>
+<span class="sd">    This is possible since behavioral tests are inputs applied to black box</span>
+<span class="sd">    models and compared with expected outputs. There is not dependency on</span>
+<span class="sd">    data or model versions.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        model_dir (Path): location of model artifacts. Defaults to config.MODEL_DIR.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: Run id doesn't exist in experiment.</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># Generate behavioral report</span>
+    <span class="n">artifacts</span> <span class="o">=</span> <span class="n">main</span><span class="o">.</span><span class="n">load_artifacts</span><span class="p">(</span><span class="n">model_dir</span><span class="o">=</span><span class="n">model_dir</span><span class="p">)</span>
+    <span class="n">artifacts</span><span class="p">[</span><span class="s2">"performance"</span><span class="p">][</span><span class="s2">"behavioral"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">eval</span><span class="o">.</span><span class="n">get_behavioral_report</span><span class="p">(</span><span class="n">artifacts</span><span class="o">=</span><span class="n">artifacts</span><span class="p">)</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">"behavioral_score"</span><span class="p">,</span> <span class="n">artifacts</span><span class="p">[</span><span class="s2">"performance"</span><span class="p">][</span><span class="s2">"behavioral"</span><span class="p">][</span><span class="s2">"score"</span><span class="p">])</span>
+
+    <span class="c1"># Log updated performance</span>
+    <span class="n">utils</span><span class="o">.</span><span class="n">save_dict</span><span class="p">(</span><span class="n">artifacts</span><span class="p">[</span><span class="s2">"performance"</span><span class="p">],</span> <span class="n">Path</span><span class="p">(</span><span class="n">model_dir</span><span class="p">,</span> <span class="s2">"performance.json"</span><span class="p">))</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="app.cli.compute_features">
+
+<code class="highlight language-python"><span class="n">compute_features</span><span class="p">(</span><span class="n">params_fp</span><span class="o">=</span><span class="n">PosixPath</span><span class="p">(</span><span class="s1">'/home/runner/work/MLOps/MLOps/config/params.json'</span><span class="p">))</span></code>
+
+
+      </h3>
+<div class="doc doc-contents ">
+<p>Compute and save features for training.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>params_fp</code></td>
+<td><code>Path</code></td>
+<td>
+<p>Location of parameters (just using num_samples,
+                        num_epochs, etc.) to use for training.
+                        Defaults to <code>config/params.json</code>.</p>
+</td>
+<td><code>PosixPath('/home/runner/work/MLOps/MLOps/config/params.json')</code></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>app/cli.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">compute_features</span><span class="p">(</span>
+    <span class="n">params_fp</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">CONFIG_DIR</span><span class="p">,</span> <span class="s2">"params.json"</span><span class="p">),</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">"""Compute and save features for training.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        params_fp (Path, optional): Location of parameters (just using num_samples,</span>
+<span class="sd">                                    num_epochs, etc.) to use for training.</span>
+<span class="sd">                                    Defaults to `config/params.json`.</span>
+<span class="sd">    """</span>
+    <span class="c1"># Parameters</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">Namespace</span><span class="p">(</span><span class="o">**</span><span class="n">utils</span><span class="o">.</span><span class="n">load_dict</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="n">params_fp</span><span class="p">))</span>
+
+    <span class="c1"># Compute features</span>
+    <span class="n">main</span><span class="o">.</span><span class="n">compute_features</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="app.cli.download_data">
+
+<code class="highlight language-python"><span class="n">download_data</span><span class="p">()</span></code>
+
+
+      </h3>
+<div class="doc doc-contents ">
+<p>Load data from URL and save to local drive.</p>
+<details class="quote">
+          <summary>Source code in <code>app/cli.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">download_data</span><span class="p">():</span>
+    <span class="sd">"""Load data from URL and save to local drive."""</span>
+    <span class="c1"># Download data</span>
+    <span class="n">projects_url</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">"https://raw.githubusercontent.com/GokuMohandas/MadeWithML/main/datasets/projects.json"</span>
+    <span class="p">)</span>
+    <span class="n">tags_url</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/GokuMohandas/MadeWithML/main/datasets/tags.json"</span>
+    <span class="n">projects</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">load_json_from_url</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">projects_url</span><span class="p">)</span>
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">load_json_from_url</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">tags_url</span><span class="p">)</span>
+
+    <span class="c1"># Save data</span>
+    <span class="n">projects_fp</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">DATA_DIR</span><span class="p">,</span> <span class="s2">"projects.json"</span><span class="p">)</span>
+    <span class="n">tags_fp</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">DATA_DIR</span><span class="p">,</span> <span class="s2">"tags.json"</span><span class="p">)</span>
+    <span class="n">utils</span><span class="o">.</span><span class="n">save_dict</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">projects</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="n">projects_fp</span><span class="p">)</span>
+    <span class="n">utils</span><span class="o">.</span><span class="n">save_dict</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">tags</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="n">tags_fp</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"✅ Data downloaded!"</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="app.cli.optimize">
+
+<code class="highlight language-python"><span class="n">optimize</span><span class="p">(</span><span class="n">params_fp</span><span class="o">=</span><span class="n">PosixPath</span><span class="p">(</span><span class="s1">'/home/runner/work/MLOps/MLOps/config/params.json'</span><span class="p">),</span> <span class="n">study_name</span><span class="o">=</span><span class="s1">'optimization'</span><span class="p">,</span> <span class="n">num_trials</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span></code>
+
+
+      </h3>
+<div class="doc doc-contents ">
+<p>Optimize a subset of hyperparameters towards an objective.</p>
+<p>This saves the best trial's parameters into <code>config/params.json</code>.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>params_fp</code></td>
+<td><code>Path</code></td>
+<td>
+<p>Location of parameters (just using num_samples,
+                        num_epochs, etc.) to use for training.
+                        Defaults to <code>config/params.json</code>.</p>
+</td>
+<td><code>PosixPath('/home/runner/work/MLOps/MLOps/config/params.json')</code></td>
+</tr>
+<tr>
+<td><code>study_name</code></td>
+<td><code>Optional[str]</code></td>
+<td>
+<p>Name of the study to save trial runs under. Defaults to <code>optimization</code>.</p>
+</td>
+<td><code>'optimization'</code></td>
+</tr>
+<tr>
+<td><code>num_trials</code></td>
+<td><code>int</code></td>
+<td>
+<p>Number of trials to run. Defaults to 100.</p>
+</td>
+<td><code>100</code></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>app/cli.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">optimize</span><span class="p">(</span>
+    <span class="n">params_fp</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">CONFIG_DIR</span><span class="p">,</span> <span class="s2">"params.json"</span><span class="p">),</span>
+    <span class="n">study_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"optimization"</span><span class="p">,</span>
+    <span class="n">num_trials</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">"""Optimize a subset of hyperparameters towards an objective.</span>
+
+<span class="sd">    This saves the best trial's parameters into `config/params.json`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        params_fp (Path, optional): Location of parameters (just using num_samples,</span>
+<span class="sd">                                    num_epochs, etc.) to use for training.</span>
+<span class="sd">                                    Defaults to `config/params.json`.</span>
+<span class="sd">        study_name (str, optional): Name of the study to save trial runs under. Defaults to `optimization`.</span>
+<span class="sd">        num_trials (int, optional): Number of trials to run. Defaults to 100.</span>
+<span class="sd">    """</span>
+    <span class="c1"># Parameters</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">Namespace</span><span class="p">(</span><span class="o">**</span><span class="n">utils</span><span class="o">.</span><span class="n">load_dict</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="n">params_fp</span><span class="p">))</span>
+
+    <span class="c1"># Optimize</span>
+    <span class="n">pruner</span> <span class="o">=</span> <span class="n">optuna</span><span class="o">.</span><span class="n">pruners</span><span class="o">.</span><span class="n">MedianPruner</span><span class="p">(</span><span class="n">n_startup_trials</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_warmup_steps</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">study</span> <span class="o">=</span> <span class="n">optuna</span><span class="o">.</span><span class="n">create_study</span><span class="p">(</span><span class="n">study_name</span><span class="o">=</span><span class="n">study_name</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">"maximize"</span><span class="p">,</span> <span class="n">pruner</span><span class="o">=</span><span class="n">pruner</span><span class="p">)</span>
+    <span class="n">mlflow_callback</span> <span class="o">=</span> <span class="n">MLflowCallback</span><span class="p">(</span><span class="n">tracking_uri</span><span class="o">=</span><span class="n">mlflow</span><span class="o">.</span><span class="n">get_tracking_uri</span><span class="p">(),</span> <span class="n">metric_name</span><span class="o">=</span><span class="s2">"f1"</span><span class="p">)</span>
+    <span class="n">study</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">trial</span><span class="p">:</span> <span class="n">main</span><span class="o">.</span><span class="n">objective</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">trial</span><span class="p">),</span>
+        <span class="n">n_trials</span><span class="o">=</span><span class="n">num_trials</span><span class="p">,</span>
+        <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">mlflow_callback</span><span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="c1"># All trials</span>
+    <span class="n">trials_df</span> <span class="o">=</span> <span class="n">study</span><span class="o">.</span><span class="n">trials_dataframe</span><span class="p">()</span>
+    <span class="n">trials_df</span> <span class="o">=</span> <span class="n">trials_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">"value"</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Best trial</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Best value (f1): </span><span class="si">{</span><span class="n">study</span><span class="o">.</span><span class="n">best_trial</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">params</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">,</span> <span class="o">**</span><span class="n">study</span><span class="o">.</span><span class="n">best_trial</span><span class="o">.</span><span class="n">params</span><span class="p">}</span>
+    <span class="n">params</span><span class="p">[</span><span class="s2">"threshold"</span><span class="p">]</span> <span class="o">=</span> <span class="n">study</span><span class="o">.</span><span class="n">best_trial</span><span class="o">.</span><span class="n">user_attrs</span><span class="p">[</span><span class="s2">"threshold"</span><span class="p">]</span>
+    <span class="n">utils</span><span class="o">.</span><span class="n">save_dict</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">params_fp</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">NumpyEncoder</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">NumpyEncoder</span><span class="p">))</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="app.cli.predict_tags">
+
+<code class="highlight language-python"><span class="n">predict_tags</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">'Transfer learning with BERT for self-supervised learning'</span><span class="p">,</span> <span class="n">run_id</span><span class="o">=</span><span class="s1">'dce5cc211fbb474e9b86af40939be0ca'</span><span class="p">)</span></code>
+
+
+      </h3>
+<div class="doc doc-contents ">
+<p>Predict tags for a give input text using a trained model.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure that you have a trained model first!</p>
+</div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text</code></td>
+<td><code>Optional[str]</code></td>
+<td>
+<p>Input text to predict tags for.
+                  Defaults to "Transfer learning with BERT for self-supervised learning".</p>
+</td>
+<td><code>'Transfer learning with BERT for self-supervised learning'</code></td>
+</tr>
+<tr>
+<td><code>run_id</code></td>
+<td><code>str</code></td>
+<td>
+<p>ID of the model run to load artifacts. Defaults to run ID in config.MODEL_DIR.</p>
+</td>
+<td><code>'dce5cc211fbb474e9b86af40939be0ca'</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ValueError</code></td>
+<td>
+<p>Run id doesn't exist in experiment.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Dict</code></td>
+<td>
+<p>Predicted tags for input text.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>app/cli.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">predict_tags</span><span class="p">(</span>
+    <span class="n">text</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Transfer learning with BERT for self-supervised learning"</span><span class="p">,</span>
+    <span class="n">run_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">MODEL_DIR</span><span class="p">,</span> <span class="s2">"run_id.txt"</span><span class="p">))</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+    <span class="sd">"""Predict tags for a give input text using a trained model.</span>
+
+<span class="sd">    Warning:</span>
+<span class="sd">        Make sure that you have a trained model first!</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        text (str, optional): Input text to predict tags for.</span>
+<span class="sd">                              Defaults to "Transfer learning with BERT for self-supervised learning".</span>
+<span class="sd">        run_id (str): ID of the model run to load artifacts. Defaults to run ID in config.MODEL_DIR.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: Run id doesn't exist in experiment.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Predicted tags for input text.</span>
+<span class="sd">    """</span>
+    <span class="c1"># Predict</span>
+    <span class="n">artifacts</span> <span class="o">=</span> <span class="n">main</span><span class="o">.</span><span class="n">load_artifacts</span><span class="p">(</span><span class="n">run_id</span><span class="o">=</span><span class="n">run_id</span><span class="p">)</span>
+    <span class="n">prediction</span> <span class="o">=</span> <span class="n">predict</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="n">text</span><span class="p">],</span> <span class="n">artifacts</span><span class="o">=</span><span class="n">artifacts</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">prediction</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="app.cli.train_model">
+
+<code class="highlight language-python"><span class="n">train_model</span><span class="p">(</span><span class="n">params_fp</span><span class="o">=</span><span class="n">PosixPath</span><span class="p">(</span><span class="s1">'/home/runner/work/MLOps/MLOps/config/params.json'</span><span class="p">),</span> <span class="n">model_dir</span><span class="o">=</span><span class="n">PosixPath</span><span class="p">(</span><span class="s1">'/home/runner/work/MLOps/MLOps/model'</span><span class="p">),</span> <span class="n">experiment_name</span><span class="o">=</span><span class="s1">'best'</span><span class="p">,</span> <span class="n">run_name</span><span class="o">=</span><span class="s1">'model'</span><span class="p">)</span></code>
+
+
+      </h3>
+<div class="doc doc-contents ">
+<p>Train a model using the specified parameters.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>params_fp</code></td>
+<td><code>Path</code></td>
+<td>
+<p>Parameters to use for training. Defaults to <code>config/params.json</code>.</p>
+</td>
+<td><code>PosixPath('/home/runner/work/MLOps/MLOps/config/params.json')</code></td>
+</tr>
+<tr>
+<td><code>model_dir</code></td>
+<td><code>Optional[pathlib.Path]</code></td>
+<td>
+<p>location of model artifacts. Defaults to config.MODEL_DIR.</p>
+</td>
+<td><code>PosixPath('/home/runner/work/MLOps/MLOps/model')</code></td>
+</tr>
+<tr>
+<td><code>experiment_name</code></td>
+<td><code>Optional[str]</code></td>
+<td>
+<p>Name of the experiment to save the run to. Defaults to <code>best</code>.</p>
+</td>
+<td><code>'best'</code></td>
+</tr>
+<tr>
+<td><code>run_name</code></td>
+<td><code>Optional[str]</code></td>
+<td>
+<p>Name of the run. Defaults to <code>model</code>.</p>
+</td>
+<td><code>'model'</code></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>app/cli.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">train_model</span><span class="p">(</span>
+    <span class="n">params_fp</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">CONFIG_DIR</span><span class="p">,</span> <span class="s2">"params.json"</span><span class="p">),</span>
+    <span class="n">model_dir</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">MODEL_DIR</span><span class="p">),</span>
+    <span class="n">experiment_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"best"</span><span class="p">,</span>
+    <span class="n">run_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"model"</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">"""Train a model using the specified parameters.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        params_fp (Path, optional): Parameters to use for training. Defaults to `config/params.json`.</span>
+<span class="sd">        model_dir (Path): location of model artifacts. Defaults to config.MODEL_DIR.</span>
+<span class="sd">        experiment_name (str, optional): Name of the experiment to save the run to. Defaults to `best`.</span>
+<span class="sd">        run_name (str, optional): Name of the run. Defaults to `model`.</span>
+<span class="sd">    """</span>
+    <span class="c1"># Parameters</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">Namespace</span><span class="p">(</span><span class="o">**</span><span class="n">utils</span><span class="o">.</span><span class="n">load_dict</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="n">params_fp</span><span class="p">))</span>
+
+    <span class="c1"># Start run</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="n">experiment_name</span><span class="o">=</span><span class="n">experiment_name</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">run_name</span><span class="o">=</span><span class="n">run_name</span><span class="p">):</span>
+        <span class="n">run_id</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">active_run</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">run_id</span>
+
+        <span class="c1"># Train</span>
+        <span class="n">artifacts</span> <span class="o">=</span> <span class="n">main</span><span class="o">.</span><span class="n">train_model</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+
+        <span class="c1"># Set tags</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">set_tags</span><span class="p">(</span><span class="n">tags</span><span class="p">)</span>
+
+        <span class="c1"># Log metrics</span>
+        <span class="n">performance</span> <span class="o">=</span> <span class="n">artifacts</span><span class="p">[</span><span class="s2">"performance"</span><span class="p">]</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">performance</span><span class="p">[</span><span class="s2">"overall"</span><span class="p">],</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">"precision"</span><span class="p">:</span> <span class="n">performance</span><span class="p">[</span><span class="s2">"overall"</span><span class="p">][</span><span class="s2">"precision"</span><span class="p">],</span>
+            <span class="s2">"recall"</span><span class="p">:</span> <span class="n">performance</span><span class="p">[</span><span class="s2">"overall"</span><span class="p">][</span><span class="s2">"recall"</span><span class="p">],</span>
+            <span class="s2">"f1"</span><span class="p">:</span> <span class="n">performance</span><span class="p">[</span><span class="s2">"overall"</span><span class="p">][</span><span class="s2">"f1"</span><span class="p">],</span>
+            <span class="s2">"best_val_loss"</span><span class="p">:</span> <span class="n">artifacts</span><span class="p">[</span><span class="s2">"loss"</span><span class="p">],</span>
+            <span class="s2">"behavioral_score"</span><span class="p">:</span> <span class="n">performance</span><span class="p">[</span><span class="s2">"behavioral"</span><span class="p">][</span><span class="s2">"score"</span><span class="p">],</span>
+            <span class="s2">"slices_f1"</span><span class="p">:</span> <span class="n">performance</span><span class="p">[</span><span class="s2">"slices"</span><span class="p">][</span><span class="s2">"overall"</span><span class="p">][</span><span class="s2">"f1"</span><span class="p">],</span>
+        <span class="p">}</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+
+        <span class="c1"># Log artifacts</span>
+        <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">dp</span><span class="p">:</span>
+            <span class="n">utils</span><span class="o">.</span><span class="n">save_dict</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">artifacts</span><span class="p">[</span><span class="s2">"params"</span><span class="p">]),</span> <span class="n">Path</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="s2">"params.json"</span><span class="p">),</span> <span class="bp">cls</span><span class="o">=</span><span class="n">NumpyEncoder</span><span class="p">)</span>
+            <span class="n">utils</span><span class="o">.</span><span class="n">save_dict</span><span class="p">(</span><span class="n">performance</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="s2">"performance.json"</span><span class="p">))</span>
+            <span class="n">artifacts</span><span class="p">[</span><span class="s2">"label_encoder"</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="s2">"label_encoder.json"</span><span class="p">))</span>
+            <span class="n">artifacts</span><span class="p">[</span><span class="s2">"tokenizer"</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="s2">"tokenizer.json"</span><span class="p">))</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">artifacts</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">Path</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="s2">"model.pt"</span><span class="p">))</span>
+            <span class="n">mlflow</span><span class="o">.</span><span class="n">log_artifacts</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_params</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">artifacts</span><span class="p">[</span><span class="s2">"params"</span><span class="p">]))</span>
+
+    <span class="c1"># Save for repo</span>
+    <span class="nb">open</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">model_dir</span><span class="p">,</span> <span class="s2">"run_id.txt"</span><span class="p">),</span> <span class="s2">"w"</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">run_id</span><span class="p">)</span>
+    <span class="n">utils</span><span class="o">.</span><span class="n">save_dict</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">params</span><span class="p">),</span> <span class="n">Path</span><span class="p">(</span><span class="n">model_dir</span><span class="p">,</span> <span class="s2">"params.json"</span><span class="p">),</span> <span class="bp">cls</span><span class="o">=</span><span class="n">NumpyEncoder</span><span class="p">)</span>
+    <span class="n">utils</span><span class="o">.</span><span class="n">save_dict</span><span class="p">(</span><span class="n">performance</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="n">model_dir</span><span class="p">,</span> <span class="s2">"performance.json"</span><span class="p">))</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../api/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                API
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../tagifai/config/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Config
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/GokuMohandas" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://linkedin.com/in/goku" target="_blank" rel="noopener" title="linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/GokuMohandas" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/madewithml?sub_confirmation=1" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+      
+      
+      <a href="mailto:hello@madewithml.com" target="_blank" rel="noopener" title="" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.tabs', 'navigation.expand'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
